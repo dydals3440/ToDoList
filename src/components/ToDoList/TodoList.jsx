@@ -32,6 +32,7 @@ export default function TodoList() {
           <li key={todo.id}>{todo.text}</li>
         ))}
       </ul>
+      {/* toDo가 추가되면 알려주는 것을 콜백함수로 전달 */}
       <AddToDo onAdd={handleAdd} />
     </>
   );
