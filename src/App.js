@@ -6,7 +6,7 @@ import TodoList from './components/ToDoList/TodoList';
 const filters = ['All', 'Active', 'Completed'];
 
 function App() {
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState(filters[0]);
   return (
     <div>
       <Header
