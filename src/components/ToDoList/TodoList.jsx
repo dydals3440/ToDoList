@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './TodoList.css';
+import AddToDo from '../AddToDo/AddToDo';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([
@@ -14,6 +15,16 @@ export default function TodoList() {
       status: 'active',
     },
   ]);
+
+  /**
+   * AddToDo onAdd 함수로부터 받은 text 값
+   */
+  const handleAdd = (todo) => {
+    // toDo update
+    console.log(todo);
+    setTodos([...todos, todo]);
+  };
+
   return (
     <>
       <ul>
@@ -21,6 +32,7 @@ export default function TodoList() {
           <li key={todo.id}>{todo.text}</li>
         ))}
       </ul>
+      <AddToDo onAdd={handleAdd} />
     </>
   );
 }
