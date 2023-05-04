@@ -1,10 +1,20 @@
+import { useState } from 'react';
 import './App.css';
+import Header from './components/Header/Header';
 import TodoList from './components/ToDoList/TodoList';
 
+const filters = ['All', 'Active', 'Completed'];
+
 function App() {
+  const [filter, setFilter] = useState('All');
   return (
     <div>
-      <TodoList />
+      <Header
+        filters={filters}
+        filter={filter}
+        onFilterChange={(filter) => setFilter(filter)}
+      />
+      <TodoList filter={filter} />
     </div>
   );
 }
