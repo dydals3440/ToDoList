@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TodoList.css';
 import AddToDo from '../AddToDo/AddToDo';
+import ToDo from '../ToDo/ToDo';
 
 export default function TodoList() {
   const [todos, setTodos] = useState([
@@ -16,20 +17,25 @@ export default function TodoList() {
     },
   ]);
 
-  /**
-   * AddToDo onAdd 함수로부터 받은 text 값
-   */
-  const handleAdd = (todo) => {
-    // toDo update
-    console.log(todo);
-    setTodos([...todos, todo]);
+  const handleAdd = (todo) => setTodos([...todos, todo]);
+
+  const handleUpdate = (updated) =>
+    setTodos(todos.map((todo) => (todo.id === updated.id ? updated : todo)));
+
+  const handleDelete = (deleted) => {
+    setTodos(todos.filter((todo) => todo.id !== deleted.id));
   };
 
   return (
     <>
       <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>{todo.text}</li>
+        {todos.map((item) => (
+          <ToDo
+            key={item.id}
+            todo={item}
+            onUpdate={handleUpdate}
+            onDelete={handleDelete}
+          />
         ))}
       </ul>
       {/* toDo가 추가되면 알려주는 것을 콜백함수로 전달 */}
