@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './AddToDo.css';
+import { v4 as uuidv4 } from 'uuid';
 
 export default function AddToDo({ onAdd }) {
   const [text, setText] = useState('');
@@ -12,7 +13,7 @@ export default function AddToDo({ onAdd }) {
       alert('할 일을 입력해주세요!');
       return;
     } else {
-      onAdd({ id: '고유한 값', text, status: 'active' });
+      onAdd({ id: uuidv4(), text, status: 'active' });
       setText('');
     }
   };
