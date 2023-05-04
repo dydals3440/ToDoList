@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# ToDo MiniProject
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+## ToDo App 실행 방법
 
-In the project directory, you can run:
+### 실행 방법
 
-### `npm start`
+`yarn start`를 통해 프로젝트를 시작할 수 있습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### ToDo 방문하기
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+아래의 링크에서 실제 작동되는 App을 확인할 수 있습니다.
 
-### `npm test`
+링크 추가하기! (netlify)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+### Commit Message Convention
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`feat`: 기능 추가, 삭제, 변경
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`fix`: 버그 수정
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`docs`: 문서 추가, 삭제, 변경 - 코드 수정없음
 
-### `npm run eject`
+`style`: 코드 형식, 정렬, 주석 등의 변경
+(세미콜론 추가 같은 코드 수정이 있으나, 기능에 변동 X)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`refactor`: 코드 리펙토링 (변수명, JS -> TS)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`test`: 테스트 코드 추가, 삭제, 변경 등
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+`chore`: 위에 해당하지 않는 모든 변경, eg. 빌드 스크립트 수정, 패키지 배포 설정 변경
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+### ToDo 핵심 기능
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [ ] 아이템 추가 기능
+  - [ ] input validation 필요
+- [ ] 아이템 삭제 기능
+  - [ ] 삭제시 `정말 삭제하시겠습니까?` 경고 기능 구현!
+- [ ] 아이템 체크 박스 구현
+  - [ ] Active / Completed / All 각 상황에 맞게 필터링 구현!
+- [ ] `useContext` 활용 DarkMode 구현!
+- [ ] `localstorage` 저장 기능 구현!
+- [ ] 깔끔하게 스타일링!
+- [ ] `netlify` 활용 배포!
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+... 생각나면 더 추가하기!
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### ToDo 기능 실행 영상!
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Trouble Shooting
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+`ToDo Project` 진행 중 막혔던 부분을 정리하고 해결과정을 정리해보자.
