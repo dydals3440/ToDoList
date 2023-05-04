@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.css';
+import './Header.module.css';
 
 export default function Header({ filters, filter, onFilterChange }) {
   return (
