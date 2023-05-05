@@ -21,7 +21,7 @@ export default function TodoList({ filter }) {
   const filtered = getFilteredItems(todos, filter);
 
   function getFilteredItems(todos, filter) {
-    if (filter === 'All') {
+    if (filter === 'all') {
       return todos;
     }
     return todos.filter((todo) => todo.status === filter);

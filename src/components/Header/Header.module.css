@@ -21,6 +21,7 @@
 
 .filters {
   display: flex;
+  text-transform: uppercase;
 }
 
 .filter {

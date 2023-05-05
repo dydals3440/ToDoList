@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import TodoList from './components/ToDoList/TodoList';
 import { DarkModeProvider } from './context/DarkModeContext';
 
-const filters = ['All', 'Active', 'Completed'];
+const filters = ['all', 'active', 'completed'];
 
 function App() {
   const [filter, setFilter] = useState(filters[0]);
