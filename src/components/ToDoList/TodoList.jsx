@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './TodoList.module.css';
 import AddToDo from '../AddToDo/AddToDo';
 import ToDo from '../ToDo/ToDo';
 
 export default function TodoList({ filter }) {
-  const [todos, setTodos] = useState([
-    {
-      id: '1',
-      text: '파이썬 과제 진행',
-      status: 'Active',
-    },
-    {
-      id: '2',
-      text: '프로젝트 진행',
-      status: 'Completed',
-    },
-  ]);
+  const [todos, setTodos] = useState(() => readToDosFromLocalStorage());
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
 
   const handleAdd = (todo) => setTodos([...todos, todo]);
 
@@ -51,4 +43,10 @@ export default function TodoList({ filter }) {
       <AddToDo onAdd={handleAdd} />
     </section>
   );
+}
+
+function readToDosFromLocalStorage() {
+  console.log('readTodosFromLocalStorage');
+  const todos = localStorage.getItem('todos');
+  return todos ? JSON.parse(todos) : [];
 }
