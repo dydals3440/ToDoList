@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './TodoList.css';
+import styles from './TodoList.module.css';
 import AddToDo from '../AddToDo/AddToDo';
 import ToDo from '../ToDo/ToDo';
 
@@ -36,8 +36,8 @@ export default function TodoList({ filter }) {
   }
 
   return (
-    <>
-      <ul>
+    <section className={styles.container}>
+      <ul className={styles.list}>
         {filtered.map((item) => (
           <ToDo
             key={item.id}
@@ -49,6 +49,6 @@ export default function TodoList({ filter }) {
       </ul>
       {/* toDo가 추가되면 알려주는 것을 콜백함수로 전달 */}
       <AddToDo onAdd={handleAdd} />
-    </>
+    </section>
   );
 }

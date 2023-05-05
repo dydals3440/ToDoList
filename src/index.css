@@ -4,6 +4,8 @@
   --color-grey: #d1d1d1;
   --color-text: #22243b;
   --color-accent: #f16e03;
+  --color-white: #eeeeee;
+  --color-scrollbar: #aaa7a7;
 }
 
 body {
@@ -15,6 +17,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   height: 100vh;
+  font-size: 1.2rem;
+  accent-color: var(--color-accent);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,7 +31,7 @@ body {
   height: 60%;
   max-width: 500px;
   background-color: var(--color-bg-dark);
-  overflow: hidden;
+  overflow-y: hidden;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
@@ -42,6 +46,10 @@ code {
     monospace;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 ul {
   list-style: none;
   padding-left: 0;
@@ -50,4 +58,20 @@ ul {
 button {
   outline: none;
   border: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-scrollbar);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-accent);
 }
