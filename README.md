@@ -8,11 +8,44 @@
 
 `yarn start`를 통해 프로젝트를 시작할 수 있습니다.
 
-### ToDo 방문하기
+### ToDo 사용해보기
 
 아래의 링크에서 실제 작동되는 App을 확인할 수 있습니다.
 
-링크 추가하기! (netlify)
+[🏃‍♂️ ToDo 사용해보기](https://matthew--roaring-kelpie-519f5d.netlify.app/)
+
+---
+
+# 프로젝트 파일 구조
+
+```js
+📦src
+ ┣ 📂components
+ ┃ ┣ 📂AddToDo
+ ┃ ┃ ┣ 📜AddToDo.jsx
+ ┃ ┃ ┗ 📜AddToDo.module.css
+ ┃ ┣ 📂Header
+ ┃ ┃ ┣ 📜Header.jsx
+ ┃ ┃ ┗ 📜Header.module.css
+ ┃ ┣ 📂ToDo
+ ┃ ┃ ┣ 📜ToDo.jsx
+ ┃ ┃ ┗ 📜ToDo.module.css
+ ┃ ┗ 📂ToDoList
+ ┃ ┃ ┣ 📜TodoList.jsx
+ ┃ ┃ ┗ 📜TodoList.module.css
+ ┣ 📂context
+ ┃ ┗ 📜DarkModeContext.js
+ ┣ 📂imgs
+ ┃ ┗ 📜usingApp.gif
+ ┣ 📜App.css
+ ┣ 📜App.js
+ ┣ 📜App.test.js
+ ┣ 📜index.css
+ ┣ 📜index.js
+ ┣ 📜logo.svg
+ ┣ 📜reportWebVitals.js
+ ┗ 📜setupTests.js
+```
 
 ---
 
@@ -37,45 +70,34 @@
 
 ### ToDo 핵심 기능
 
-- [ ] 아이템 추가 기능
-  - [ ] 컴포넌트 분리, `ToDo 컴포넌트`는 todos 데이터만 보이게, `AddToDo 컴포넌트`는 사용자 입력을 받아 그 값을 전달하는 기능 담당.
-  - [ ] input validation 필요
-- [ ] 아이템 삭제 기능
-  - [ ] 삭제시 `정말 삭제하시겠습니까?` 경고 기능 구현!
-- [ ] 아이템 체크 박스 구현
-  - [ ] Active / Completed / All 각 상황에 맞게 필터링 구현!
-- [ ] `useContext` 활용 DarkMode 구현!
-- [ ] `localstorage` 저장 기능 구현!
-- [ ] 깔끔하게 스타일링!
-- [ ] `netlify` 활용 배포!
-
-... 생각나면 더 추가하기!
+- [x] 아이템 추가 기능
+  - [x] 컴포넌트 분리, `ToDo 컴포넌트`는 todos 데이터만 보이게, `AddToDo 컴포넌트`는 사용자 입력을 받아 그 값을 전달하는 기능 담당.
+  - [x] input validation 필요
+- [x] 아이템 삭제 기능
+  - [x] 삭제시 `정말 삭제하시겠습니까?` 경고 기능 구현!
+- [x] 아이템 체크 박스 구현
+  - [x] Active / Completed / All 각 상황에 맞게 필터링 구현!
+- [x] `useContext` 활용 DarkMode 구현!
+- [x] `localstorage` 저장 기능 구현!
+- [x] 깔끔하게 스타일링!
+- [x] `netlify` 활용 배포!
 
 ---
 
 ### ToDo 기능 실행 영상!
 
+![앱 사용영상](./src/imgs/usingApp.gif)
+
 ---
 
 ### Trouble Shooting 🛠️
 
-`ToDo Project` 진행 중 막혔던 부분을 정리하고 해결과정을 정리해보자.
+ToDo프로젝트를 진행하면서 발생한 `버그 수정`, `문제 해결`, 기능 구현시 `어려웠던 점 정리`, `성능 개선`, `작업 효율 향상` 들에 관해 정리한 기록입니다.
 
-1.  `AddToDo` 기능 구현시 input의 value가 없을 떄 추가되지 못하도록 구현 중 발생한 에러!
-
-    - 처음에는 `if(text.length === 0)` 일때 추가를 못하도록 구현을 했지만, 이 경우 공백을 `' '` 이렇게 스페이스바만 눌렀을 경우, 문자열이 있다고 인식하여 아래 이미지와 같이 조건문을 무시하고 공백으로 추가가 된다.
-      ![트러블 슈팅 1](./src/imgs/TroubleShooting1.png)
-      `trim`을 활용해서 앞/뒤의 여백을 제거한 새로운 문자열을 반환하여, 길이를 다시 측정하여 문제를 해결하였다. `if(text.trim() === '')` or `if(text.trim().length === 0)` 을 통해 해결했다.
+[프로젝트를 진행시 배운점들 정리](https://www.notion.so/ToDo-Project-fb96d25ffef1446c8708c5bd762a5837?pvs=4)
 
 ---
 
-2.  `filter` 기능 구현을 처음 해보기에 어떻게 접근해야할지 감조차 안잡혔다...
+### 버그 발생시 ☎️
 
-    구현 과정
-
-    - 먼저, `Header 컴포넌트`를 만들어준다.
-    - 제일 큰, 부모요소인 `App.js`에서 각각의 필터의 상태를 관리해준다.
-      filters(전체 필터 종류)를 변수로 선언하여 관리하고, `useState`를 통해 초기값 Filter는 'All' 즉, `filters[0]` 로 설정해주고, `setFilter`를 통해 버튼을 클릭할 떄마다, 현재 상태가 바뀔 수 있도록 구현해주자.
-    - `Header 컴포넌트`에 인자를 전달해주자, `전체 필터인 filters`, `선택된 필터인 filter`, `onFilterChange를 하여, filter 변경을 바로 인식하게 구현`해주자.
-    - 그 후, Header 컴포넌트에서 전달받은 전체 filter를 갖고, `map`을 활용하여 버튼을 만들어 주면 된다. 그리고 그 버튼이 클릭 되었을 때 그 클릭된 버튼의 value로 설정해줍니다.
-    - 그 후, 실제로 변동된 `filter` 값으로 ToDoList 컴포넌트에 가서, 필터링(filtered)된 아이템만이 화면에 나올 수 있도록, `filter 내장함수`를 활용하여 prop으로 전달받은 `filter`와, 기존 `item.status`를 비교하여 같은 것만 표시될 수 있도록 구현해주었다.
+연락 부탁드립니다. <dydals3440@gmail.com>
